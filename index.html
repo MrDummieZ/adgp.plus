@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ADGP+ - My Video Webpage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Ensure the video doesn't overflow the body */
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -1; /* Place the video behind other content */
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .content {
+            text-align: left;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            opacity: 0; /* Initially hide the content */
+            transition: opacity 1s; /* Add a smooth transition effect */
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 36px; /* Font size for ADGP+ */
+        }
+
+        p {
+            color: #666;
+            font-size: 14px; /* Font size for Films, details, and more! */
+        }
+    </style>
+</head>
+<body>
+    <!-- Video Background -->
+    <video id="bgVideo" autoplay muted class="video-background">
+        <source src="https://cdn.discordapp.com/attachments/1186827449032507423/1188548129570705518/copy_90A4937C-A11A-4490-BE58-473C58EEB1EE.mov?ex=659aecb4&is=658877b4&hm=27b66d3b42176d6c26ad9bdb2df30c0a4571dd2e7b9140a45b9e96e532970133&" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Content -->
+    <div class="content">
+        <h1 id="adgp">ADGP+</h1>
+        <p id="details">Films, details, and more!</p>
+    </div>
+
+    <script>
+        // Get the video element
+        const video = document.getElementById('bgVideo');
+        const adgp = document.getElementById('adgp');
+        const details = document.getElementById('details');
+        const content = document.querySelector('.content');
+
+          // Listen for the 'ended' event
+          video.addEventListener('ended', () => {
+            // Hide the video when it finishes playing
+            video.style.display = 'none';
+            // Show the content when the video finishes playing
+            content.style.opacity = '1';
+        });
+    </script>
+</body>
+</html>
